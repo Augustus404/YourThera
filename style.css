@@ -1,0 +1,207 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-main: #e8e2d9;
+    --text-muted: rgba(232, 226, 217, 0.45);
+    --gold: #c9b99a;
+    --gold-glow: #f0e6d2;
+    --gold-muted: rgba(201, 185, 154, 0.2);
+    --gold-ornament: rgba(201, 185, 154, 0.35);
+    --divider: rgba(201, 185, 154, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Cormorant Garamond', serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Elements */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.04;
+}
+
+/* Decorative Frame */
+.frame {
+    position: fixed;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 1px solid var(--gold-muted);
+    pointer-events: none;
+    z-index: 50;
+}
+
+.corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--gold-ornament);
+    pointer-events: none;
+}
+.corner-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.corner-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.corner-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+/* Main Content */
+main {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 10;
+    position: relative;
+    animation: fadeIn 3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.brand-container {
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    letter-spacing: 0.6em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 20px;
+}
+
+.brand-container:hover .brand-name {
+    color: var(--gold-glow);
+    text-shadow: 0 0 15px rgba(201, 185, 154, 0.4);
+    letter-spacing: 0.7em;
+}
+
+.logo-svg {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-container:hover .logo-svg {
+    transform: scale(1.1);
+}
+
+/* Ornate Dividers */
+.ornate-divider {
+    width: 300px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider-top { margin-bottom: 30px; }
+.divider-bottom { margin-top: 30px; }
+
+h1 {
+    font-size: clamp(48px, 8vw, 100px);
+    font-weight: 300;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    color: var(--text-main);
+}
+
+.tagline {
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-top: 15px;
+    font-weight: 300;
+}
+
+/* Breathing Dot */
+.pulse-container {
+    margin-top: 25px;
+    height: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.pulse-dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--gold);
+    border-radius: 50%;
+    animation: breathe 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+    from { opacity: 0.2; transform: scale(0.9); }
+    to { opacity: 1.0; transform: scale(1.1); }
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.footer-rights {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(232, 226, 217, 0.2);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.footer-credit {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(232, 226, 217, 0.15);
+    text-transform: lowercase;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* Hidden SVG for Filters */
+svg.noise-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+}

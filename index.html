@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>—</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Noise Texture -->
+    <svg class="noise-svg">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+    </svg>
+    <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+
+    <!-- Decorative Frame -->
+    <div class="frame">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+    </div>
+
+    <main>
+        <!-- Top Ornate Brand Logo -->
+        <div class="brand-container">
+            <div class="logo">
+                <svg class="logo-svg" width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Classical Ornate Lines inspired by the user image -->
+                    <path d="M10 20H40M60 20H90" stroke="#c9b99a" stroke-width="0.5" stroke-linecap="round"/>
+                    <path d="M35 15H65" stroke="#c9b99a" stroke-width="0.5" stroke-opacity="0.6"/>
+                    <path d="M35 25H65" stroke="#c9b99a" stroke-width="0.5" stroke-opacity="0.6"/>
+                    <path d="M42 20H58" stroke="#c9b99a" stroke-width="2.5" />
+                    <line x1="50" y1="10" x2="50" y2="30" stroke="#c9b99a" stroke-width="0.5" stroke-opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="brand-name">YourThera</div>
+        </div>
+
+        <!-- Ornate Dividers framing the text -->
+        <div class="ornate-divider divider-top">
+            <svg width="240" height="20" viewBox="0 0 240 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10H80M160 10H240" stroke="#c9b99a" stroke-width="0.5" stroke-opacity="0.3"/>
+                <circle cx="120" cy="10" r="2.5" fill="#c9b99a" fill-opacity="0.6"/>
+                <path d="M100 10C105 5 115 5 120 10C125 5 135 5 140 10" stroke="#c9b99a" stroke-width="0.5"/>
+                <path d="M100 10C105 15 115 15 120 10C125 15 135 15 140 10" stroke="#c9b99a" stroke-width="0.5"/>
+            </svg>
+        </div>
+
+        <h1>Coming Soon</h1>
+
+        <p class="tagline">Something considered is on its way.</p>
+
+        <div class="pulse-container">
+            <div class="pulse-dot"></div>
+        </div>
+
+        <div class="ornate-divider divider-bottom">
+            <svg width="240" height="20" viewBox="0 0 240 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10H80M160 10H240" stroke="#c9b99a" stroke-width="0.5" stroke-opacity="0.3"/>
+                <rect x="117.5" y="7.5" width="5" height="5" transform="rotate(45 120 10)" fill="#c9b99a" fill-opacity="0.6"/>
+                <path d="M90 10L110 10M130 10L150 10" stroke="#c9b99a" stroke-width="0.5"/>
+            </svg>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-rights">&copy; 2025 &mdash; All Rights Reserved</div>
+        <div class="footer-credit">by Vinayak Tripathi</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
